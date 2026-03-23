@@ -1886,7 +1886,10 @@ def processThreePhaseInfo(plant: Plant):
         for stack in batteries2:
             sockwh=sockwh+batteries2[stack]['Stack_SOC_kWh']
             count+=1
-        power_output['SOC_kWh'] = sockwh/count                                         # Average SOC of all stacks...
+        if count > 0:
+            power_output['SOC_kWh'] = sockwh/count                                         # Average SOC of all stacks...
+        else:
+            power_output['SOC_kWh'] = 0
 
         inverter['status']=GEInv.status.name.capitalize()
         inverter['System_Mode']=GEInv.system_mode.name.capitalize()
