@@ -13,7 +13,8 @@ RUN npm install && \
 
 # set base image (host OS)
 #FROM python:3.11-rc-alpine
-FROM python:alpine3.19
+#FROM python:alpine3.19
+FROM python:3.11-alpine3.19
 
 RUN apk add --no-cache \
     git \
